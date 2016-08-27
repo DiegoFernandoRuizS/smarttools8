@@ -6,3 +6,7 @@ from .models import Usuario
 class IndexView (ListView):
     model = Usuario
     template_name = 'index.html'
+
+class RegisterView (ListView):
+    model = Usuario
+    template_name = 'register.html'
