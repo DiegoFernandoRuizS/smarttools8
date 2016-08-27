@@ -1,4 +1,14 @@
+# No pycharm
+
+.idea/
+workspace.xml
+*.pyc
+*.iml
+postgres_heroku
+.env
+
 # Byte-compiled / optimized / DLL files
+
 __pycache__/
 *.py[cod]
 *$py.class

@@ -1,0 +1,17 @@
+boto==2.42.0
+dj-database-url==0.2.2
+dj-static==0.0.6
+Django==1.10
+django-bootstrap3==7.0.1
+django-fontawesome==0.2.6
+django-storages==1.5.0
+gunicorn==18.0
+mock==2.0.0
+pbr==1.10.0
+psycopg2==2.6.2
+PyYAML==3.11
+six==1.10.0
+static3==0.5.1
+wheel==0.24.0
+requests==2.11.1
+travis==0.0.2
