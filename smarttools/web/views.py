@@ -10,3 +10,11 @@ class IndexView (ListView):
 class RegisterView (ListView):
     model = Usuario
     template_name = 'register.html'
+
+class HomeView (ListView):
+    model = Usuario
+    template_name = 'homecompetitions.html'
+
+class CompetitionView (ListView):
+    model = Usuario
+    template_name = 'homecompetition.html'
