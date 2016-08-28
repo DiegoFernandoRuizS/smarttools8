@@ -8,7 +8,7 @@
         <h1>Concursos disponibles</h1>
     </div>
 </div>
-
+{% if company %}
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
@@ -45,5 +45,12 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
+{% else %}
+<div class="row">
+    <div class="col-sm-12 centered-container">
+        <span>No hay nada aquí</span>
+    </div>
+</div>
+{% endif %}
 
 {% endblock %}

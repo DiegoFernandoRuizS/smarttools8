@@ -6,13 +6,13 @@
 {% bootstrap_javascript %}
 {% load static %}
 
+{% if company %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Nombre de la empresa</title>
 </head>
-
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home'%}">Nombre de la empresa</a>
+          <a class="navbar-brand" href="#">Nombre de la empresa</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -40,5 +40,12 @@
     </nav>
 {% block main %}
 {% endblock %}
+{% else %}
+<div class="row">
+    <div class="col-sm-12 centered-container">
+        <span>No hay nada aquí</span>
+    </div>
+</div>
 </body>
 </html>
+{% endif %}
