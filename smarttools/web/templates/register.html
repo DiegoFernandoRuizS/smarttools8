@@ -7,19 +7,30 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-
         </div>
         <div class="col-md-4">
-            <form class="form-signin">
+            <form class="form-signup">
                 <h2 class="form-signin-heading">Crear cuenta</h2>
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required=""
-                       autofocus="">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                <label for="inputFirstName" class="sr-only">Nombres</label>
+                <input type="text" id="inputFirstName" class="form-control" placeholder="Nombres" required=""
+                       autofocus="true">
+                <br>
+                <label for="inputSurname" class="sr-only">Apellidos</label>
+                <input type="text" id="inputSurname" class="form-control" placeholder="Apellidos" required="">
+                <br>
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
+                <br>
+                <label for="inputPassword" class="sr-only">Contraseña</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
+                <br>
+                <label for="inputPassword2" class="sr-only">Contraseña</label>
+                <input type="password" id="inputPassword2" class="form-control" placeholder="Confirme contraseña"
+                       required="">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" value="remember-me"> Acepto los términos y condiciones
+                        <input type="checkbox" value="acepto-terminos" required="required"> Acepto los términos y
+                        condiciones
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Crear cuenta</button>
@@ -28,7 +39,6 @@
         <div class="col-md-4">
         </div>
     </div>
-
 </div> <!-- /container -->
 
 
