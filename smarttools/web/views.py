@@ -2,7 +2,7 @@ from django.contrib.gis.db.models import fields
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, TemplateView
-from .models import Usuario, User
+from .models import Usuario, User, Video
 
 
 class IndexView(ListView):
@@ -42,3 +42,6 @@ class CompetitionView(ListView):
             queryset = None
         return queryset
 
+class AddVideoView(ListView):
+    model = Video
+    template_name = 'addvideo.html'
