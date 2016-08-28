@@ -17,7 +17,7 @@ class RegisterView(ListView):
 
 class HomeView(ListView):
     model = User
-    template_name = 'homecompetitions.html'
+    template_name = 'home.html'
     context_object_name = 'company'
 
     def get_queryset(self, **kwargs):
@@ -28,10 +28,9 @@ class HomeView(ListView):
             queryset = None
         return queryset
 
-
 class CompetitionView(ListView):
     model = User
-    template_name = 'homecompetition.html'
+    template_name = 'competition.html'
     context_object_name = 'company_competition'
 
     def get_queryset(self, **kwargs):
