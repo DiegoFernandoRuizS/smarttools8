@@ -1,4 +1,4 @@
-{% extends 'basecompetitions.html' %}
+{% extends 'basehome.html' %}
 
 {% block main %}
 
@@ -15,17 +15,7 @@
         <div class="col-md-4">
             <h2>Nombre del concurso</h2>
             <p>Descripcion de concurso</p>
-            <p><a class="btn btn-default" href="{% url 'competition' company_name=company.username %}" role="button">Ver detalles »</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Nombre del concurso</h2>
-            <p>Descripcion de concurso</p>
-            <p><a class="btn btn-default" href="#" role="button">Ver detalles »</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Nombre del concurso</h2>
-            <p>Descripcion de concurso</p>
-            <p><a class="btn btn-default" href="#" role="button">Ver detalles »</a></p>
+            <p><a class="btn btn-default" href="{% url 'competition' company_id=company.id %}" role="button">Ver detalles »</a></p>
         </div>
     </div>
 
