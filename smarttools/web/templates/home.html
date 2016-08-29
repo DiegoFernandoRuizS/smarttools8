@@ -2,52 +2,55 @@
 
 {% block main %}
 
-<!-- Main jumbotron for a primary marketing message or call to action -->
-{% if company %}
-<div class="jumbotron">
-    <div class="container">
-        {% with company|first as first_object %}
-        <h1>Concursos disponibles en {{ first_object.username }}</h1>
-        {% endwith %}
-
-    </div>
-</div>
-{% endif %}
-{% if company %}
-<div class="container">
-    <!-- Example row of columns -->
-    {%for compa in company%}
-
-    <div class="row">
-        <div class="col-md-12">
-            <h2>{{compa.name}}</h2>
-            <p>{{compa.description}}</p>
-            <img src="{{compa.image}}"/>
-            <p><a class="btn btn-default" role="button">Ver detalles »</a></p>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    {% if company %}
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Concursos disponibles en {{ company.username }}</h1>
+            </div>
         </div>
-    </div>
-    {%endfor%}
-    <hr>
-    <footer>
-        <p>© 2016 Sitio propocionado por Smart Tools S.A.</p>
-    </footer>
-</div> <!-- /container -->
+    {% endif %}
+    {% if competitions %}
+        <div class="container">
+            <!-- Example row of columns -->
+            {% for compa in competitions %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>{{ compa.name }}</h2>
+                        <p>{{ compa.description }}</p>
+                        </br>
+                        <img src="{{ compa.image }}" width="200" height="100"/>
+                        </br>
+                        <p><a class="btn btn-default" role="button">Ver detalles »</a></p>
+                    </div>
+                </div>
+            {% endfor %}
+            <hr>
+            <footer>
+                <p>© 2016 Sitio propocionado por Smart Tools S.A.</p>
+            </footer>
+        </div> <!-- /container -->
 
-<!-- Bootstrap core JavaScript
-   ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="../../dist/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!-- Bootstrap core JavaScript
+           ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
-{% else %}
-<div class="row">
-    <div class="col-sm-12 centered-container">
-        <span>No hay nada aquí</span>
-    </div>
-</div>
-{% endif %}
+    {% else %}
+         <div class="container">
+         <div class="row">
+                    <div class="col-md-12">
+                        <p>No hay concursos aún</p>
+                    </div>
+                </div>
+        <footer>
+            <p>© 2016 Sitio propocionado por Smart Tools S.A.</p>
+        </footer>
+        </div>
+    {% endif %}
 
 {% endblock %}

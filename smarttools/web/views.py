@@ -24,14 +24,18 @@ class HomeView(ListView):
     def get_queryset(self, **kwargs):
         company = self.kwargs['company_name']
         try:
-            queryset = User.objects.filter(username__exact=company)
-            queryset2 = Competition.objects.filter(user__username__exact=company)
-            result_list = list(chain(queryset, queryset2))
-            for x in result_list:
-                print("--- > "+str(x))
+            queryset = User.objects.filter(username__exact=company).get()
         except User.DoesNotExist:
-            result_list = None
-        return result_list
+            queryset = None
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        company = self.kwargs['company_name']
+        queryset2 = Competition.objects.filter(user__username__exact=company)
+
+        context['competitions'] = queryset2
+        return context
 
 class CompetitionView(ListView):
     model = User
