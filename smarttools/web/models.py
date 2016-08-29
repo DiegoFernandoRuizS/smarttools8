@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-
+"""
 class Usuario(models.Model):
     name = models.CharField(max_length=200, null=False)
     surname = models.CharField(max_length=200, null=False)
@@ -16,6 +16,7 @@ class Usuario(models.Model):
 
     class Meta:
         ordering = ['name']
+"""
 
 class Competition(models.Model):
     name = models.CharField(max_length=200,null=False)

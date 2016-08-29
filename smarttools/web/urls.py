@@ -1,8 +1,8 @@
 from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
 
-from .views import IndexView,RegisterView
+from .views import WebIndexView
 
 urlpatterns = [
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^register/', RegisterView.as_view(), name='register'),
+    url(r'^web$', login_required(WebIndexView.as_view()), name='web_index'),
 ]
