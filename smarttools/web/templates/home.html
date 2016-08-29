@@ -6,23 +6,26 @@
 {% if company %}
 <div class="jumbotron">
     <div class="container">
-        <h1>Concursos disponibles en {{company.username}}</h1>
+        <h1>Concursos disponibles en {{company.name}}</h1>
     </div>
 </div>
 {% endif %}
 {% if company %}
 <div class="container">
     <!-- Example row of columns -->
+    {%for compa in company%}
+    {% if compa %}
     <div class="row">
-        <div class="col-md-4">
-            <h2>Nombre del concurso</h2>
-            <p>Descripcion de concurso</p>
-            <p><a class="btn btn-default" href="{% url 'competition' company_name=company.username %}" role="button">Ver detalles »</a></p>
+        <div class="col-md-12">
+            <h2>{{compa.name}}</h2>
+            <p>{{compa.description}}</p>
+            <img src="{{compa.image}}"/>
+            <p><a class="btn btn-default" role="button">Ver detalles »</a></p>
         </div>
     </div>
-
+    {%endif%}
+    {%endfor%}
     <hr>
-
     <footer>
         <p>© 2016 Sitio propocionado por Smart Tools S.A.</p>
     </footer>

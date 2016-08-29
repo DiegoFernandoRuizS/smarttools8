@@ -1,8 +1,9 @@
 from django.contrib.gis.db.models import fields
 from django.shortcuts import render
 from django.http import HttpResponse
+from itertools import chain
 from django.views.generic import ListView, TemplateView
-from .models import Usuario, User, Video
+from .models import Usuario, User, Video, Competition
 
 
 class IndexView(ListView):
@@ -23,10 +24,14 @@ class HomeView(ListView):
     def get_queryset(self, **kwargs):
         company = self.kwargs['company_name']
         try:
-            queryset = User.objects.filter(username__exact=company).get()
+            queryset = User.objects.filter(username__exact=company)
+            queryset2 = Competition.objects.filter(user__username__exact=company)
+            result_list = list(chain(queryset, queryset2))
+            for x in result_list:
+                print("--- > "+str(x))
         except User.DoesNotExist:
-            queryset = None
-        return queryset
+            result_list = None
+        return result_list
 
 class CompetitionView(ListView):
     model = User
