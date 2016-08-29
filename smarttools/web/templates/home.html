@@ -6,7 +6,10 @@
 {% if company %}
 <div class="jumbotron">
     <div class="container">
-        <h1>Concursos disponibles en {{company.name}}</h1>
+        {% with company|first as first_object %}
+        <h1>Concursos disponibles en {{ first_object.username }}</h1>
+        {% endwith %}
+        
     </div>
 </div>
 {% endif %}
@@ -14,7 +17,7 @@
 <div class="container">
     <!-- Example row of columns -->
     {%for compa in company%}
-    {% if compa %}
+
     <div class="row">
         <div class="col-md-12">
             <h2>{{compa.name}}</h2>
@@ -23,7 +26,6 @@
             <p><a class="btn btn-default" role="button">Ver detalles »</a></p>
         </div>
     </div>
-    {%endif%}
     {%endfor%}
     <hr>
     <footer>
