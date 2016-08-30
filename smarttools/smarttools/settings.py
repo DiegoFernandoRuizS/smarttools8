@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import dj_database_url
+from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY_SMARTTOOLS']
-
+#SECRET_KEY = os.environ['SECRET_KEY_SMARTTOOLS']
+SECRET_KEY = 'qrjk_0l##y&+@+sdju!g2i1l@qwb(b=^h5)gp3)ihj(+=l2ct$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -37,16 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
+    'usuario',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 ROOT_URLCONF = 'smarttools.urls'
@@ -54,9 +58,10 @@ ROOT_URLCONF = 'smarttools.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -122,3 +127,7 @@ STATIC_URL = '/static/'
 BOOTSTRAP3 = {
     'jquery_url': '//code.jquery.com/jquery.min.js',
 }
+
+#pagina a la que se debe redireccionar despues que un usuario se autentica.
+LOGIN_REDIRECT_URL = reverse_lazy('web_index')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')

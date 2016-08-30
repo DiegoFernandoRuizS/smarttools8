@@ -10,11 +10,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Tools</title>
+    <title>Nombre de la empresa</title>
 </head>
-
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -23,22 +22,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'index'%}">Smart Tools</a>
+          <a class="navbar-brand" href="{% url 'home'}">Nombre de la empresa</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-              <button type="submit" class="btn btn-success">Iniciar sesión</button>
-          </form>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
 {% block main %}
 {% endblock %}
+
 </body>
 </html>
