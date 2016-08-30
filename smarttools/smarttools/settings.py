@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import dj_database_url
+from djcelery.app import app
+
 from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -132,3 +134,11 @@ BOOTSTRAP3 = {
 LOGIN_REDIRECT_URL = reverse_lazy('web_index')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
+
+app.conf.update(
+    CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
+)
+
+app.conf.update(
+    CELERY_RESULT_BACKEND='djcelery.backends.cache:CacheBackend',
+)
