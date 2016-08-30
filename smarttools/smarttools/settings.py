@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'usuario',
+    'djcelery',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,4 @@ BOOTSTRAP3 = {
 # Pagina a la que se debe redireccionar despues que un usuario se autentica.
 LOGIN_REDIRECT_URL = reverse_lazy('web_index')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
+
