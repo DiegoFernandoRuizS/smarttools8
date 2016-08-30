@@ -22,7 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY_SMARTTOOLS']
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -128,6 +127,6 @@ BOOTSTRAP3 = {
     'jquery_url': '//code.jquery.com/jquery.min.js',
 }
 
-#pagina a la que se debe redireccionar despues que un usuario se autentica.
+# Pagina a la que se debe redireccionar despues que un usuario se autentica.
 LOGIN_REDIRECT_URL = reverse_lazy('web_index')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
