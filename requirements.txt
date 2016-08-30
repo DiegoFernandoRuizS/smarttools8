@@ -15,3 +15,4 @@ static3==0.5.1
 wheel==0.24.0
 requests==2.11.1
 travis==0.0.2
+django-celery=3.1.17
