@@ -8,7 +8,7 @@ class RegisterUser(CreateView):
     model = User
     template_name = "usuario/register.html"
     form_class = RegisterForm #UserCreationForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('web_index')
 
 
 """

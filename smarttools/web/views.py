@@ -7,14 +7,8 @@ from .models import Usuario, User, Video, Competition
 
 
 class WebIndexView(ListView):
-    model = User
-    template_name = 'web/index.html'
-
-
-class RegisterView(ListView):
     model = Usuario
-    template_name = 'register.html'
-
+    template_name = 'web/index.html'
 
 class HomeView(ListView):
     model = User
