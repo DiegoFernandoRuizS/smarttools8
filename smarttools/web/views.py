@@ -6,15 +6,9 @@ from django.views.generic import ListView, TemplateView
 from .models import Usuario, User, Video, Competition
 
 
-class IndexView(ListView):
+class WebIndexView(ListView):
     model = Usuario
-    template_name = 'index.html'
-
-
-class RegisterView(ListView):
-    model = Usuario
-    template_name = 'register.html'
-
+    template_name = 'web/index.html'
 
 class HomeView(ListView):
     model = User

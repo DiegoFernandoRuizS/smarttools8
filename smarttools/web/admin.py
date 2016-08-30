@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Usuario, Competition, Video
+from .models import Competition, Video
 
-
+"""
 @admin.register(Usuario)
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ('name', 'surname', 'email',)
-
+"""
 
 @admin.register(Competition)
 class CompetitionAdmin(admin.ModelAdmin):

@@ -1,15 +1,19 @@
-{% extends 'base.html' %}
-
+{% extends '../base.html' %}
+{% block nav %}
+    <p style="padding-top: 10px;">
+        <a href="{% url 'logout' %}" class="navbar-right btn btn-success">Cerrar sesión</a>
+    </p>
+{% endblock %}
 {% block main %}
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Smart Tools</h1>
+        <h1>Empresa X</h1>
         <p>El aprovisionamiento de software como servicio (SaaS) es el mecanismo que permite proporcionar innovación
             constantemente. La plataforma de SMART TOOLS ofrece una manera segura, de confianza y de bajo costo de
             proporcionar soluciones de SaaS de uno y varios inquilinos.
-        <p><a class="btn btn-primary btn-lg" href="{% url 'register'%}" role="button">Crear cuenta »</a></p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Crear concurso »</a></p>
     </div>
 </div>
 
@@ -17,7 +21,7 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-4">
-            <h2>Valores agregados</h2>
+            <h2>Concurso 1</h2>
             <p>El lanzamiento del programa de socios de SaaS de SMART TOOLS mundial presenta una serie de beneficios
                 diseñados
                 para ayudarle a crear y ampliar soluciones de SaaS en SMART TOOLS. A medida que su negocio evolucione,
@@ -27,14 +31,14 @@
             <p><a class="btn btn-default" href="#" role="button">Ver detalles »</a></p>
         </div>
         <div class="col-md-4">
-            <h2>Valores agregados</h2>
+            <h2>Concurso 2</h2>
             <p>Los beneficios se estructuran en un ciclo de vida de madurez: Aprendizaje, Desarrollo y Ampliación. A
                 continuación se muestran los beneficios que ofrecemos en cada fase del ciclo de vida: aprendizaje,
                 desarrollo y ampliación.</p>
             <p><a class="btn btn-default" href="#" role="button">Ver detalles »</a></p>
         </div>
         <div class="col-md-4">
-            <h2>Valores agregados</h2>
+            <h2>Concurso 3</h2>
             <p>En la fase Aprendizaje, dispondrá de acceso a contenido SaaS de capacitación empresarial y técnica, como
                 artículos, documentos técnicos y arquitectura de referencia. Los webcasts del programa de socios de SaaS
                 contienen videos breves que resumen y amplían el contenido de capacitación empresarial y técnica.</p>

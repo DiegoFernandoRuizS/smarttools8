@@ -1,10 +1,12 @@
-{% extends 'base.html' %}
+{% extends '../base.html' %}
 
 {% block main %}
 <br>
 <br>
 <br>
-<div class="container">
+<form method="post">
+    {% csrf_token %}
+    <div class="container">
     <div class="row">
         <div class="col-md-4">
         </div>
@@ -12,20 +14,23 @@
             <form class="form-signup">
                 <h2 class="form-signin-heading">Crear cuenta</h2>
                 <label for="inputFirstName" class="sr-only">Nombres</label>
-                <input type="text" id="inputFirstName" class="form-control" placeholder="Nombres" required=""
+                <input type="text" id="inputFirstName" name="first_name" class="form-control" placeholder="Nombres" required=""
                        autofocus="true">
                 <br>
                 <label for="inputSurname" class="sr-only">Apellidos</label>
-                <input type="text" id="inputSurname" class="form-control" placeholder="Apellidos" required="">
+                <input type="text" id="inputSurname" name="last_name"  class="form-control" placeholder="Apellidos" required="">
+                <br>
+                <label for="inputUsername" class="sr-only">Usuario</label>
+                <input type="text" id="inputUsername" name="username"  class="form-control" placeholder="Usuario" required="">
                 <br>
                 <label for="inputEmail" class="sr-only">Email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
+                <input type="email" id="inputEmail" name="email"  class="form-control" placeholder="Email" required="" autofocus="">
                 <br>
                 <label for="inputPassword" class="sr-only">Contraseña</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
+                <input type="password" id="inputPassword" name="password1"  class="form-control" placeholder="Contraseña" required="">
                 <br>
-                <label for="inputPassword2" class="sr-only">Contraseña</label>
-                <input type="password" id="inputPassword2" class="form-control" placeholder="Confirme contraseña"
+                <label for="inputPassword2" class="sr-only">Confirmar Contraseña</label>
+                <input type="password" id="inputPassword2" name="password2"  class="form-control" placeholder="Confirme contraseña"
                        required="">
                 <div class="checkbox">
                     <label>
@@ -41,9 +46,9 @@
     </div>
 </div> <!-- /container -->
 
-
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</form>
 
 
 {% endblock %}
