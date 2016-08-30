@@ -2,6 +2,8 @@
 from django.views.generic import ListView, TemplateView
 from .models import Usuario, User, Video, Competition
 from .task import convert_video
+from django_cron import CronJobBase, Schedule
+
 
 class WebIndexView(ListView):
     model = Usuario
@@ -33,7 +35,7 @@ class CompetitionView(ListView):
     template_name = 'competition.html'
     context_object_name = 'company_competition'
 
-    convert_video.delay(2)
+    #convert_video.delay(2)
 
     def get_queryset(self, **kwargs):
         company = self.kwargs['company_name']
