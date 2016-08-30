@@ -1,10 +1,7 @@
-from django.contrib.gis.db.models import fields
-from django.shortcuts import render
-from django.http import HttpResponse
-from itertools import chain
+
 from django.views.generic import ListView, TemplateView
 from .models import Usuario, User, Video, Competition
-
+from .task import convert_video
 
 class WebIndexView(ListView):
     model = Usuario
@@ -36,6 +33,8 @@ class CompetitionView(ListView):
     template_name = 'competition.html'
     context_object_name = 'company_competition'
 
+    convert_video.delay(2)
+
     def get_queryset(self, **kwargs):
         company = self.kwargs['company_name']
         print("--->>>>>>>>>>> "+company)
@@ -44,6 +43,8 @@ class CompetitionView(ListView):
         except User.DoesNotExist:
             queryset = None
         return queryset
+
+
 
 class AddVideoView(ListView):
     model = Video
