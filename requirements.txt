@@ -1,7 +1,7 @@
 boto==2.42.0
 dj-database-url==0.2.2
 dj-static==0.0.6
-Django==1.9.2
+Django==1.10
 django-bootstrap3==7.0.1
 django-fontawesome==0.2.6
 django-storages==1.5.0

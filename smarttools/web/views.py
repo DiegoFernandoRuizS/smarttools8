@@ -2,9 +2,7 @@ import subprocess
 import logging
 from django.views.generic import ListView, TemplateView
 from .models import Usuario, User, Video, Competition
-from .task import convert_video
-from django_cron import CronJobBase, Schedule
-from djcelery.app import app
+
 
 
 class WebIndexView(ListView):
@@ -55,16 +53,19 @@ class AddVideoView(ListView):
     template_name = 'addvideo.html'
     print("Llego a video add....")
 
-    video = Video.objects.filter(id=2).get()
+
+    video = Video.objects.filter(id=1).get()
     print("Llego al proceso background....")
     print(video.name)
 
-    print("Path" + video.original_video.path)
+    print("Path 1 " + video.original_video.path)
 
-    cmd = ['ffmpeg', '-i', video.original_video.path, video.convertido.path]
-    print('Ejecutando... %s', ' '.join(cmd))
+    cmd = ['ffmpeg', '-i ', video.original_video.path + ' -b 1500k -vcodec libx264 -g 30 ', 'C:\\Users\\diego\\Documents\\GitHub\\smarttools8\\smarttools\\video\\salida.pm4']
+    #print('Ejecutando... %s', ' '.join(cmd))
     proc = subprocess.Popen(cmd)
     proc.subprocess.wait()
+
+    print("Esta convertido? "+video.converted)
 
     if proc.returncode != 0:
         print('Falló algo en command failed with ret val %s', proc.returncode)
@@ -74,5 +75,4 @@ class AddVideoView(ListView):
         video.converted = True
         video.save()
         print.info('Video convertido ok')
-
 
