@@ -55,11 +55,14 @@ class AddVideoView(ListView):
 
     video = Video.objects.filter(id=1).get()
     pathConverted = 'C:\\Users\\diego\\Documents\\GitHub\\convertido.mp4'
-
     cmd = ['ffmpeg', '-i ', video.original_video.path, ' -b 1500k -vcodec libx264 -g 30', pathConverted]
     print('Ejecutando... ', ' '.join(cmd))
-    proc = subprocess.Popen(cmd)
-    proc.subprocess.wait()
+    proc = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    try:
+        proc = subprocess.run(cmd, shell=True, check=True)
+        proc.subprocess.wait()
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
 
     print("Esta convertido? " + video.converted)
 
