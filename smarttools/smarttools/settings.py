@@ -142,3 +142,9 @@ app.conf.update(
 app.conf.update(
     CELERY_RESULT_BACKEND='djcelery.backends.cache:CacheBackend',
 )
+
+STATIC_URL = '/videos/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "videos"),
+]

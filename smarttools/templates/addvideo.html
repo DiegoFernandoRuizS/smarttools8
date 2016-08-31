@@ -9,24 +9,10 @@
         <div class="col-md-4">
         </div>
         <div class="col-md-4">
-            <form class="form-signup">
+            <form class="form-signup" action="{%url 'addvideo'%}" enctype="multipart/form-data" method="post">
                 <h2 class="form-signin-heading">Subir un video</h2>
-                <label for="inputFirstName" class="sr-only">Nombres</label>
-                <input type="text" id="inputFirstName" class="form-control" placeholder="Nombres" required=""
-                       autofocus="true">
-                <br>
-                <label for="inputSurname" class="sr-only">Apellidos</label>
-                <input type="text" id="inputSurname" class="form-control" placeholder="Apellidos" required="">
-                <br>
-                <label for="inputEmail" class="sr-only">Email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
-                <br>
-                <label for="inputVideo" class="sr-only">Video</label>
-                <input type="file" id="inputVideo" class="form-control" placeholder="Video" required="">
-                <br>
-                <label for="inputMessage" class="sr-only">Descripción del video</label>
-                <input type="text" id="inputMessage" class="form-control" placeholder="Descripción del video" required="">
-                <br>
+                {%csrf_token%}
+                {{form.as_p}}
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar video</button>
             </form>
         </div>
